@@ -7,7 +7,8 @@ Route Optimization is the process of determining the most cost-efficient route. 
 This topic was first addressed mathematically in the 1930s to solve a school bus routing problem. It was called the Traveling Salesman Problem, which consists of finding the shortest way for a driver to visit all the locations, given the distances between them.
 
 The Traveling Salesman Problem can be generalized into the Vehicle Routing Problem: the issue of mapping routes for vehicles while minimizing an objective function composed of operating costs and user preferences. It’s the main problem in logistics transportation. For instance, if at night there is a lot of traffic (or high tolls) on the shortest path, it might not be the optimal route for dinner deliveries.
-Data
+
+## Data
 Here we used data for taxi stands in singapore. After cleaning the raw data we are left with data which contain 4 columns. Data Dictionary -
 
 
