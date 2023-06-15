@@ -1,6 +1,6 @@
 # MapUp-Route-Optimization
 
-![image](Screenshot 2023-06-15 121548.png)
+![Screenshot 2023-06-15 121548.png](https://github.com/ujjwal-dhiman-ai/MapUp-Route-Optimization/blob/main/Screenshot%202023-06-15%20121548.png)
 
 ## Summary
 Route Optimization is the process of determining the most cost-efficient route. It doesn’t necessarily mean finding the shortest path between two points, as it includes all relevant factors (i.e. profit, number of locations, time windows).
