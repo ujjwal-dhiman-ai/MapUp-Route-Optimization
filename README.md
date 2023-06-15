@@ -10,17 +10,13 @@ The Traveling Salesman Problem can be generalized into the Vehicle Routing Probl
 Data
 Here we used data for taxi stands in singapore. After cleaning the raw data we are left with data which contain 4 columns. Data Dictionary -
 
-Latitude
-Latitudes are horizontal lines that measure distance north or south of the equator. 
-Longitude
-Longitudes are vertical lines that measure east or west of meridian in Greenwich, England.
-Amenity
-In this project we are working on only taxi stands, so under this column amenity type will be taxi.
-Name
-This specifies the name of each taxi stand.
 
-
-
+| Column   | Description                                              |
+|----------|----------------------------------------------------------|
+| Latitude | Horizontal lines that measure distance north or south of the equator |
+| Longitude | Vertical lines that measure east or west of the meridian in Greenwich, England |
+| Amenity  | Specifies the type of amenity, in this case, it will be "taxi" |
+| Name     | Specifies the name of each taxi stand                     |
 
 Source: https://overpass-turbo.eu/s/1w4p  
 
