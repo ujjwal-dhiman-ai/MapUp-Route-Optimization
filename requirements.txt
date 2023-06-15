@@ -10,3 +10,4 @@ osmnx==1.2.2
 networkx>2
 matplotlib>3.4
 seaborn==0.11.1
+markupsafe>1
