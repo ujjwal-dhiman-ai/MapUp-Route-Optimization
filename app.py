@@ -101,7 +101,7 @@ def get_path():
     # map_path = "templates/map.html"
     map_path = "https://github.com/ujjwal-dhiman-ai/MapUp-Route-Optimization/blob/main/templates/map.html"
     map_.save(map_path)
-    print("Map saved successfully for: ", start_point, "--->", end_point)
+    #print("Map saved successfully for: ", start_point, "--->", end_point)
     
     return render_template('index.html', output = output)
 
