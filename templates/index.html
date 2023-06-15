@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Path Optimization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .left-column {
+            flex: 1;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .right-column {
+            flex: 1;
+            float: right;
+            margin-left: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            color: #333;
+            background-color: #fff;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        iframe {
+            border: none;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .center-column {
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h3>MapUp Route Optimization Challenge</h3>
+    <div class="container">
+        <div class="center-column">
+            <div class="left-column">
+                <form action="{{ url_for('get_path')}}" method="post">
+
+                    <label for="start_drop_down">Start:</label>
+                    <select id="start_point" name="start_point">
+                        <!-- Add your options dynamically using JavaScript -->
+                        <option value="Little India Station">Little India Station</option>
+                        <option value="Tanjong Katong Complex">Tanjong Katong Complex</option>
+                        <option value="Paya Lebar Station">Paya Lebar Station</option>
+                        <option value="Aljunied Station">Aljunied Station</option>
+                        <option value="Blk 19">Blk 19</option>
+                        <option value="Farrer Park Station">Farrer Park Station</option>
+                        <option value="Archipelago Brewery">Archipelago Brewery</option>
+                        <option value="Farrer Road Station">Farrer Road Station</option>
+                        <option value="Blk 492">Blk 492</option>
+                        <option value="Commonwealth Station">Commonwealth Station</option>
+                        <option value="Bartley Station">Bartley Station</option>
+                        <option value="Tanjong Pagar Plaza">Tanjong Pagar Plaza</option>
+                        <option value="KK Hospital">KK Hospital</option>
+                        <option value="Serangoon Station">Serangoon Station</option>
+                        <option value="Sim Lim Square">Sim Lim Square</option>
+                        <option value="Choa Chu Kang Station">Choa Chu Kang Station</option>
+                        <option value="GB Building">GB Building</option>
+                        <option value="G27 TAXI STAND">G27 TAXI STAND</option>
+                        <option value="F66">F66</option>
+                        <option value="Blk 267">Blk 267</option>
+                        <option value="Century Square Taxi Stand">Century Square Taxi Stand</option>
+                        <option value="Cashew MRT Taxi Stand (Exit A)">Cashew MRT Taxi Stand (Exit A)</option>
+                        <option value="Queenstown Station">Queenstown Station</option>
+                        <option value="Khatib Station">Khatib Station</option>
+                        <option value="Lakeside Station">Lakeside Station</option>
+                        <option value="Blk 209">Blk 209</option>
+                        <option value="Redhill Station">Redhill Station</option>
+                        <option value="Orchard Towers">Orchard Towers</option>
+                        <option value="Cold Storage Jelita">Cold Storage Jelita</option>
+                        <option value="Chinese Garden Station">Chinese Garden Station</option>
+                        <option value="Singapore General Hospital">Singapore General Hospital</option>
+                        <option value="Junction 8">Junction 8</option>
+                        <option value="Bukit Gombak Station">Bukit Gombak Station</option>
+                        <option value="Whistler Grand pickup point">Whistler Grand pickup point</option>
+                        <option value="F60">F60</option>
+                        <option value="Hougang Station">Hougang Station</option>
+                        <option value="Haw Par Villa Station">Haw Par Villa Station</option>
+                        <option value="Northpoint Shopping Centre">Northpoint Shopping Centre</option>
+                        <option value="Parc Riveria pickup point">Parc Riveria pickup point</option>
+                        <option value="SGX Centre">SGX Centre</option>
+                        <option value="College Clinic Pickup/Dropoff">College Clinic Pickup/Dropoff</option>
+                        <option value="Punggol Station">Punggol Station</option>
+                        <option value="Sembawang Wharves">Sembawang Wharves</option>
+                        <option value="Holland Drive near Buona Vista Community Club">Holland Drive near Buona Vista
+                            Community Club</option>
+                        <option value="Kranji Station">Kranji Station</option>
+                        <option value="Opposite Bishan Station">Opposite Bishan Station</option>
+                        <option value="China Square">China Square</option>
+                        <option value="Straits Trading">Straits Trading</option>
+                        <option value="Kovan Station">Kovan Station</option>
+                        <option value="Thian Hock Keng Temple">Thian Hock Keng Temple</option>
+
+                    </select>
+                    <label for="end_drop_down">End:</label>
+                    <select id="end_point" name="end_point">
+                        <!-- Add your options dynamically using JavaScript -->
+                        <option value="Thian Hock Keng Temple">Thian Hock Keng Temple</option>
+                        <option value="Tanjong Katong Complex">Tanjong Katong Complex</option>
+                        <option value="Paya Lebar Station">Paya Lebar Station</option>
+                        <option value="Aljunied Station">Aljunied Station</option>
+                        <option value="Blk 19">Blk 19</option>
+                        <option value="Farrer Park Station">Farrer Park Station</option>
+                        <option value="Archipelago Brewery">Archipelago Brewery</option>
+                        <option value="Farrer Road Station">Farrer Road Station</option>
+                        <option value="Blk 492">Blk 492</option>
+                        <option value="Commonwealth Station">Commonwealth Station</option>
+                        <option value="Bartley Station">Bartley Station</option>
+                        <option value="Tanjong Pagar Plaza">Tanjong Pagar Plaza</option>
+                        <option value="KK Hospital">KK Hospital</option>
+                        <option value="Serangoon Station">Serangoon Station</option>
+                        <option value="Sim Lim Square">Sim Lim Square</option>
+                        <option value="Choa Chu Kang Station">Choa Chu Kang Station</option>
+                        <option value="GB Building">GB Building</option>
+                        <option value="G27 TAXI STAND">G27 TAXI STAND</option>
+                        <option value="F66">F66</option>
+                        <option value="Blk 267">Blk 267</option>
+                        <option value="Century Square Taxi Stand">Century Square Taxi Stand</option>
+                        <option value="Cashew MRT Taxi Stand (Exit A)">Cashew MRT Taxi Stand (Exit A)</option>
+                        <option value="Queenstown Station">Queenstown Station</option>
+                        <option value="Khatib Station">Khatib Station</option>
+                        <option value="Lakeside Station">Lakeside Station</option>
+                        <option value="Blk 209">Blk 209</option>
+                        <option value="Redhill Station">Redhill Station</option>
+                        <option value="Orchard Towers">Orchard Towers</option>
+                        <option value="Cold Storage Jelita">Cold Storage Jelita</option>
+                        <option value="Chinese Garden Station">Chinese Garden Station</option>
+                        <option value="Singapore General Hospital">Singapore General Hospital</option>
+                        <option value="Junction 8">Junction 8</option>
+                        <option value="Bukit Gombak Station">Bukit Gombak Station</option>
+                        <option value="Whistler Grand pickup point">Whistler Grand pickup point</option>
+                        <option value="F60">F60</option>
+                        <option value="Hougang Station">Hougang Station</option>
+                        <option value="Haw Par Villa Station">Haw Par Villa Station</option>
+                        <option value="Northpoint Shopping Centre">Northpoint Shopping Centre</option>
+                        <option value="Parc Riveria pickup point">Parc Riveria pickup point</option>
+                        <option value="SGX Centre">SGX Centre</option>
+                        <option value="College Clinic Pickup/Dropoff">College Clinic Pickup/Dropoff</option>
+                        <option value="Punggol Station">Punggol Station</option>
+                        <option value="Sembawang Wharves">Sembawang Wharves</option>
+                        <option value="Holland Drive near Buona Vista Community Club">Holland Drive near Buona Vista
+                            Community Club</option>
+                        <option value="Kranji Station">Kranji Station</option>
+                        <option value="Opposite Bishan Station">Opposite Bishan Station</option>
+                        <option value="China Square">China Square</option>
+                        <option value="Straits Trading">Straits Trading</option>
+                        <option value="Kovan Station">Kovan Station</option>
+                        <option value="Little India Station">Little India Station</option>
+
+
+
+                    </select>
+
+                    <button type="submit">Get Path</button>
+
+                    <div id="output">{{output}}</div>
+                </form>
+            </div>
+
+            <div class="right-column">
+                <!-- <iframe src="map.html" width="100%" height="600px"></iframe> -->
+                <!-- <iframe src="G:/Shared drives/common/personal-folders-team/Ujjwal-Dhiman/data-training/route-optimization-challenge/04_python_scripts/templates/map.html" width="100%" height="600px"></iframe> -->
+                <!-- <iframe class="map" , src="{{ map_url }}" width="600" height="600"></iframe> -->
+                <iframe class="map" , src="/map" width="700" height="400"></iframe>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add your JavaScript code here
+        // ...
+        // onclick="getPath()"
+    </script>
+</body>
+
+</html>
