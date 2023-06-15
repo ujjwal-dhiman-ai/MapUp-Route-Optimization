@@ -37,7 +37,7 @@ def get_path():
     end_point = str(request.form['end_point'])
 
     # print(type(start_point))
-    df = pd.read_csv("50_sampled.csv")
+    df = pd.read_csv("https://github.com/ujjwal-dhiman-ai/MapUp-Route-Optimization/blob/main/50_sampled.csv")
 
     # print(type(df["name"][0]))
     # print(start_point)
