@@ -44,13 +44,13 @@ In summary, this project aims to create a web application that allows users to f
 File Structure:
 
 route-optimization
-├── app.py
-├── plot_map.py
-├── sample.py
-├── 50_sampled.csv
-└── templates
-    ├── index.html
-    └── map.html
+- app.py
+- plot_map.py
+- sample.py
+- 50_sampled.csv
+- templates
+ - index.html
+ - map.html
 
 
 1. app.py: This is the main Flask application file. It defines the routes for the home page ("/") and the route to get the optimized path ("/get_path"). The get_path() function reads a CSV file containing location data, performs network analysis, calculates the shortest paths using the Dijkstra algorithm, and generates a map with the routes. The map is saved as an HTML file and rendered in the index.html template.
