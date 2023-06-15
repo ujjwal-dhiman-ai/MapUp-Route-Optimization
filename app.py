@@ -99,7 +99,7 @@ def get_path():
     ox.plot_route_folium(G, route=path_time, route_map=map_, color="blue", weight=1)
     
     # map_path = "templates/map.html"
-    map_path = "G:/Shared drives/common/personal-folders-team/Ujjwal-Dhiman/data-training/route-optimization-challenge/04_python_scripts/templates/map.html"
+    map_path = "https://github.com/ujjwal-dhiman-ai/MapUp-Route-Optimization/blob/main/templates/map.html"
     map_.save(map_path)
     print("Map saved successfully for: ", start_point, "--->", end_point)
     
